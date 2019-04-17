@@ -42,3 +42,8 @@ export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bi
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/airton/.sdkman"
+[[ -s "/home/airton/.sdkman/bin/sdkman-init.sh" ]] && source "/home/airton/.sdkman/bin/sdkman-init.sh"
+export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
