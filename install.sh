@@ -62,5 +62,25 @@ ln -s $PWD/SublimeLinter.sublime-settings $SUBL_PATH/Packages/User/SublimeLinter
 
 zsh ~/.zshrc
 
+# Open ssl 1.1
+
+# install dependencies
+sudo apt install build-essential checkinstall zlib1g-dev
+
+# download
+cd ~/Downloads
+wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz
+tar xf openssl-1.1.1o.tar.gz
+
+# compile it
+cd ~/Downloads/openssl-1.1.1o
+./config --prefix=/opt/openssl-1.1.1o --openssldir=/opt/openssl-1.1.1o shared zlib
+make
+make test
+sudo make install
+
+# Link the system's certs to OpenSSL 1.1.1 directory
+sudo rm -rf /opt/openssl-1.1.1o/certs
+sudo ln -s /etc/ssl/certs /opt/openssl-1.1.1o
 
 echo "👌  Carry on with git setup!"
