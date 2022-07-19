@@ -33,7 +33,8 @@ ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
 mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
 if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
   echo "-----> Installing zsh plugin 'zsh-syntax-highlighting'..."
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 cd "$CURRENT_DIR"
 
@@ -61,26 +62,5 @@ ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/Package\ C
 ln -s $PWD/SublimeLinter.sublime-settings $SUBL_PATH/Packages/User/SublimeLinter.sublime-settings
 
 zsh ~/.zshrc
-
-# Open ssl 1.1
-
-# install dependencies
-sudo apt install build-essential checkinstall zlib1g-dev
-
-# download
-cd ~/Downloads
-wget https://www.openssl.org/source/openssl-1.1.1o.tar.gz
-tar xf openssl-1.1.1o.tar.gz
-
-# compile it
-cd ~/Downloads/openssl-1.1.1o
-./config --prefix=/opt/openssl-1.1.1o --openssldir=/opt/openssl-1.1.1o shared zlib
-make
-make test
-sudo make install
-
-# Link the system's certs to OpenSSL 1.1.1 directory
-sudo rm -rf /opt/openssl-1.1.1o/certs
-sudo ln -s /etc/ssl/certs /opt/openssl-1.1.1o
 
 echo "👌  Carry on with git setup!"
