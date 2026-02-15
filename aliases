@@ -2,6 +2,20 @@
 alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+#ip-watchdog
+alias ip-watchdog='sudo sh /home/airtonp/code/APonce911/scripts/ip_watchdog.sh'
 
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
+
+#bitcoin signet
+alias signet-start='/home/airtonp/Downloads/core-signet/bitcoin-30.2-x86_64-linux-gnu/bitcoin-30.2/bin/bitcoind -datadir=/home/airtonp/Downloads/core-signet/bitcoin-30.2-x86_64-linux-gnu/bitcoin-30.2/bitcoin-data -signet'
+alias signet-stop='/home/airtonp/Downloads/core-signet/bitcoin-30.2-x86_64-linux-gnu/bitcoin-30.2/bin/bitcoin-cli -datadir=/home/airtonp/Downloads/core-signet/bitcoin-30.2-x86_64-linux-gnu/bitcoin-30.2/bitcoin-data -signet stop'
+
+#bitcoin knots mainet
+alias knots='bitcoin-qt -datadir=/media/airtonp/2TB\ SSD/mnt/bitcoin-data &'
+alias knots-stop='bitcoin-cli -datadir="/media/airtonp/2TB SSD/mnt/bitcoin-data" stop'
+
+#password suggestion
+alias new-password="cat /dev/urandom | tr -dc 'a-zA-Z0-9!@#$%^&*()' | head -c 20; echo"
+

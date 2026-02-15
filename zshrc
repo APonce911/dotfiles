@@ -14,6 +14,9 @@ export HOMEBREW_NO_ANALYTICS=1
 source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 
+# Load aliases
+# source $HOME/.zsh_aliases
+
 # Load rbenv if installed
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
@@ -25,6 +28,15 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+
+#Krew(kubernetes monitoring plugin)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# # OpenClaw Completion - I DON'T KNOW WHY, BUT THIS SETTING MAKES TERMINAL STARTUP REALLY SLOW
+# source <(openclaw completion --shell zsh)
 
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
@@ -51,4 +63,6 @@ export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bi
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
+export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"

@@ -14,9 +14,9 @@
 		"GitGutter",
 		"Package Control",
 		"RuboCop",
-		"SCSS",
 		"SublimeERB",
 		"SublimeLinter",
-		"SublimeLinter-rubocop"
-	]
+		"SublimeLinter-rubocop",
+		"Sass"
+	],
 }
