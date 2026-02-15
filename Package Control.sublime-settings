@@ -13,10 +13,11 @@
 		"Git",
 		"GitGutter",
 		"Package Control",
+		"Pretty JSON",
 		"RuboCop",
+		"Sass",
 		"SublimeERB",
 		"SublimeLinter",
 		"SublimeLinter-rubocop",
-		"Sass"
 	],
 }
