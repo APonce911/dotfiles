@@ -9,10 +9,11 @@ backup() {
 }
 
 #!/bin/zsh
+# Syslink files to /home
 for name in *; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
-    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.sublime-settings$' ]]; then
+    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.sublime-settings$' ]] && [ "$name" != 'opencode.json' ]; then
       backup $target
 
       if [ ! -e "$target" ]; then
@@ -60,6 +61,17 @@ curl -k https://sublime.wbond.net/Package%20Control.sublime-package > $SUBL_PATH
 ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/Preferences.sublime-settings
 ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/Package\ Control.sublime-settings
 ln -s $PWD/SublimeLinter.sublime-settings $SUBL_PATH/Packages/User/SublimeLinter.sublime-settings
+
+# Opencode
+OPENCODE_CONFIG_DIR="$HOME/.config/opencode"
+mkdir -p "$OPENCODE_CONFIG_DIR"
+backup "$OPENCODE_CONFIG_DIR/opencode.json"
+if [ -f "$PWD/opencode.json" ]; then
+  echo "-----> Symlinking opencode.json to $OPENCODE_CONFIG_DIR"
+  ln -sf "$PWD/opencode.json" "$OPENCODE_CONFIG_DIR/opencode.json"
+else
+  echo "-----> Warning: opencode.json not found in current directory"
+fi
 
 zsh ~/.zshrc
 

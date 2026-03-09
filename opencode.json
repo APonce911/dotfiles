@@ -1,0 +1,41 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {},
+  "small_model": "openrouter/openrouter/free",
+  "default_agent": "plan",
+  "autoupdate": "notify",
+  "watcher": {
+    "ignore": ["node_modules/**", "dist/**", ".git/**"]
+  },
+  "agent": {
+    "plan": {
+      "model": "openrouter/google/gemini-3-flash-preview",
+      "temperature": 0.1,
+      "reasoning": {"enabled": true},  // Openrouter param. 🔥 This is the magic setting
+      "max_tokens": 8192, // Openrouter param.
+      "prompt": "You are a senior architect. Focus on comprehensive analysis and clear structure. No code generation.",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "edit": "ask"
+      }
+    },
+    "build": {
+      "model": "openrouter/minimax/minimax-m2.5", 
+      "temperature": 0.3,
+      "max_tokens": 4096,  // Openrouter param. 4K for focused code generation
+      "prompt": "You are a senior engineer. Implement the approved plan with clean, tested code. Reference the architecture decisions.",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "bash": "ask"
+      }
+    }
+  }
+}

@@ -55,6 +55,16 @@ export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 
+# bun completions
+[ -s "/home/airtonp/.bun/_bun" ] && source "/home/airtonp/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/airtonp/.opencode/bin:$PATH
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/airton/.sdkman"
 [[ -s "/home/airton/.sdkman/bin/sdkman-init.sh" ]] && source "/home/airton/.sdkman/bin/sdkman-init.sh"
