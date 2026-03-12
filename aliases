@@ -19,4 +19,4 @@ alias bitcoin-stop='bitcoin-cli -datadir="/media/airtonp/2TB SSD/mnt/bitcoin-dat
 
 #password suggestion
 alias new-password="cat /dev/urandom | tr -dc 'a-zA-Z0-9!@#$%^&*()' | head -c 20; echo"
-
+alias new-password-base58="cat /dev/urandom | tr -dc '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz' | head -c 20; echo"
