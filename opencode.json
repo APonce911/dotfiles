@@ -27,7 +27,7 @@
       "model": "openrouter/minimax/minimax-m2.5", 
       "temperature": 0.3,
       "max_tokens": 4096,  // Openrouter param. 4K for focused code generation
-      "prompt": "You are a senior engineer. Implement the approved plan with clean, tested code. Reference the architecture decisions.",
+      "prompt": "{file:/home/airtonp/code/APonce911/my-favorite-prompts/agents/build-agent.md}",
       "tools": {
         "write": true,
         "edit": true,
@@ -36,6 +36,21 @@
       "permission": {
         "bash": "ask"
       }
-    }
+    },
+    "ig-creator": {
+      "model": "openrouter/google/gemini-3-flash-preview",
+      "temperature": 0.5,
+      "reasoning": {"enabled": true},  // Openrouter param.
+      "max_tokens": 8192, // Openrouter param.
+      "prompt": "{file:/home/airtonp/code/APonce911/my-favorite-prompts/agents/content-creator-agent.md}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "edit": "ask"
+      }
+    },
   }
 }
